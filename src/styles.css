@@ -1,0 +1,46 @@
+.me4m-toolbar {
+  padding: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  background-color: var(--container);
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+}
+
+.CodeMirror,
+.app-editor-embed,
+div:has(> .ace_editor),
+.wikiEditor-ui-top {
+  display: none;
+}
+
+.wikiEditor-ui-view {
+  border-width: 0.25rem !important;
+  border-color: var(--container) !important;
+}
+
+.editOptions {
+  background-color: var(--container);
+  border: none;
+  color: var(--text-on-container);
+}
+
+#wpSummary {
+  background-color: #f6f8fa;
+  color: var(--text-on-container);
+  padding: 5px 12px;
+  font-size: 14px;
+  line-height: 20px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #d0d7de;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  #wpSummary {
+    background-color: #161b22;
+    border-color: #30363d;
+  }
+}
