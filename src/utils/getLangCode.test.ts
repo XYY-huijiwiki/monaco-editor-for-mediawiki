@@ -5,6 +5,9 @@ describe("getLangCode", () => {
   it("should return the correct language code for supported languages", () => {
     expect(getLangCode("en")).toBe("en");
     expect(getLangCode("de")).toBe("de");
+    expect(getLangCode("de-de")).toBe("de");
+    expect(getLangCode("de-DE")).toBe("de");
+    expect(getLangCode("de-AT")).toBe("de");
     expect(getLangCode("es")).toBe("es");
     expect(getLangCode("fr")).toBe("fr");
     expect(getLangCode("it")).toBe("it");

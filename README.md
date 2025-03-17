@@ -16,6 +16,8 @@ mw.loader.load(
 
 ## 🌟 Features
 
+![alt text](Bildschirmfoto_14-3-2025_14315_xyy.huijiwiki.com.jpeg)
+
 - **All the goodness of Monaco Editor** – Multiple selections, Find & Replace, Code Folding, and more!
 - **Wikitext syntax highlighting** – Thanks to [Frederisk/Wikitext-VSCode-Extension](https://github.com/Frederisk/Wikitext-VSCode-Extension) and [shikijs/textmate-grammars-themes](https://github.com/shikijs/textmate-grammars-themes).
 - **Auto light/dark theme** – Because your eyes deserve comfort. 😎
@@ -36,6 +38,7 @@ mw.loader.load(
 - Rewrite the toolbar using a modern framework (Vue or React).
 - Test on other wikis.
 - Externalise `monaco-editor`.
+- Improve lua debug experience.
 
 ---
 

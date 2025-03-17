@@ -13,8 +13,10 @@ import getLangCode from "./utils/getLangCode";
 
 (() => {
   const log = (message: string) => console.log(`[ME4M] ${message}`);
-  const errorLog = (message: string) =>
+  const errorLog = (message: string) => {
     console.error(`[ME4M ERROR] ${message}`);
+    throw new Error(message);
+  };
 
   log("Monaco Editor for MediaWiki is loaded, preparing...");
 
