@@ -10,26 +10,21 @@ import {
 import { shikiToMonaco } from "@shikijs/monaco";
 import { createHighlighter } from "shiki";
 import getLangCode from "./utils/getLangCode";
+import log from "./utils/log";
 
 (() => {
-  const log = (message: string) => console.log(`[ME4M] ${message}`);
-  const errorLog = (message: string) => {
-    console.error(`[ME4M ERROR] ${message}`);
-    throw new Error(message);
-  };
-
-  log("Monaco Editor for MediaWiki is loaded, preparing...");
+  log.debug("Monaco Editor for MediaWiki is loaded, preparing...");
 
   // Ensure we're on a wiki edit page
   try {
     const currentLink = new URL(location.href);
     const action = currentLink.searchParams.get("action") || "";
     if (!["edit", "submit"].includes(action)) {
-      log("Not in a wiki edit page");
+      log.debug("Not in a wiki edit page");
       return;
     }
   } catch (err) {
-    errorLog("Failed to parse URL.");
+    log.error("Failed to parse URL.");
     return;
   }
 
@@ -49,7 +44,7 @@ import getLangCode from "./utils/getLangCode";
 
     // Map wiki content model to VSCode language
     const contentModel = mw.config.get("wgPageContentModel");
-    log(`Content model: ${contentModel}`);
+    log.debug(`Content model: ${contentModel}`);
     const langMapper: Record<string, string> = {
       wikitext: "wikitext",
       GadgetDefinition: "json",
@@ -59,14 +54,14 @@ import getLangCode from "./utils/getLangCode";
       Scribunto: "lua",
     };
     const language = langMapper[contentModel || ""] || "plaintext";
-    log(`Language: ${language}`);
+    log.debug(`Language: ${language}`);
 
     const originalTextarea = document.getElementById(
       "wpTextbox1"
     ) as HTMLTextAreaElement | null;
 
     if (!originalTextarea || !originalTextarea.parentNode) {
-      log("No textarea found. Is this a wiki edit page?");
+      log.error("No textarea found. Is this a wiki edit page?");
       return;
     }
 
@@ -131,6 +126,6 @@ import getLangCode from "./utils/getLangCode";
   };
 
   initEditor().catch((err) =>
-    errorLog(`Initialization failed: ${err.message}`)
+    log.error(`Initialization failed: ${err.message}`)
   );
 })();
