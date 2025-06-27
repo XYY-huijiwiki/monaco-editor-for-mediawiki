@@ -1,8 +1,6 @@
 import ky from "ky";
-import loader from "@monaco-editor/loader";
-import { shikiToMonaco } from "@shikijs/monaco";
-import { createHighlighter } from "shiki";
-import getLangCode from "./utils/getLangCode";
+import type * as monaco from "monaco-editor";
+
 import log from "./utils/log";
 
 async function fetchRevisionSource(revid: number): Promise<string> {
@@ -23,12 +21,16 @@ async function fetchRevisionSource(revid: number): Promise<string> {
   return page?.revisions?.[0]?.content ?? "";
 }
 
-async function initDiff({
+async function initDiffEditor({
   diffOldId,
   diffNewId,
+  monacoInstance,
+  contentModel,
 }: {
   diffOldId: number;
   diffNewId: number;
+  monacoInstance: typeof monaco;
+  contentModel: ContentModel;
 }) {
   log.debug(`Initializing diff for ${diffOldId} → ${diffNewId}`);
 
@@ -37,36 +39,6 @@ async function initDiff({
     fetchRevisionSource(diffOldId),
     fetchRevisionSource(diffNewId),
   ]);
-
-  // Map content model to Monaco language
-  const contentModel = mw.config.get("wgPageContentModel");
-  const langMapper: Record<string, string> = {
-    wikitext: "wikitext",
-    GadgetDefinition: "json",
-    HtmlMustache: "html",
-    javascript: "javascript",
-    css: "css",
-    Scribunto: "lua",
-  };
-  const language = langMapper[contentModel || ""] || "plaintext";
-
-  // Prepare Monaco and Shiki
-  const highlighter = await createHighlighter({
-    themes: ["dark-plus", "light-plus"],
-    langs: ["wikitext", "json", "html", "javascript", "css", "lua"],
-  });
-
-  loader.config({
-    "vs/nls": {
-      availableLanguages: {
-        "*": getLangCode(mw.config.get("wgUserLanguage")),
-      },
-    },
-  });
-  const monacoInstance = await loader.init();
-
-  monacoInstance.languages.register({ id: language });
-  shikiToMonaco(highlighter, monacoInstance);
 
   // Create diff container
   const container = document.createElement("div");
@@ -92,40 +64,35 @@ async function initDiff({
     wrapperRow.appendChild(wrapperCell);
     diffTitleRow.parentElement.appendChild(wrapperRow);
   } else {
-    // fallback: insert into #content or body
-    const content = document.getElementById("content") || document.body;
-    content.insertBefore(container, content.firstChild);
+    log.error("`tr.diff-title` not found. Cannot insert diff container.");
   }
-
-  // Theme management
-  const updateTheme = () => {
-    const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-    monacoInstance.editor.setTheme(isDark ? "dark-plus" : "light-plus");
-  };
-  window
-    .matchMedia("(prefers-color-scheme: dark)")
-    .addEventListener("change", updateTheme);
 
   // Create Monaco diff editor
   const diffEditor = monacoInstance.editor.createDiffEditor(container, {
-    theme: "dark-plus",
     readOnly: true,
     automaticLayout: true,
     scrollBeyondLastLine: false,
     hideUnchangedRegions: {
       enabled: true,
     },
-    wordWrap: ["wikitext", "plaintext"].includes(language) ? "on" : "off",
+    wordWrap: ["wikitext", "plaintext"].includes(contentModel) ? "on" : "off",
   });
-  updateTheme();
 
-  const originalModel = monacoInstance.editor.createModel(oldSource, language);
-  const modifiedModel = monacoInstance.editor.createModel(newSource, language);
+  const originalModel = monacoInstance.editor.createModel(
+    oldSource,
+    contentModel
+  );
+  const modifiedModel = monacoInstance.editor.createModel(
+    newSource,
+    contentModel
+  );
 
   diffEditor.setModel({
     original: originalModel,
     modified: modifiedModel,
   });
+
+  return diffEditor;
 }
 
-export { initDiff };
+export default initDiffEditor;

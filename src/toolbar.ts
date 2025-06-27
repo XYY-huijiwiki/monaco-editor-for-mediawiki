@@ -2,7 +2,8 @@ import type { Button, Tooltip } from "@fluentui/web-components";
 import "@fluentui/web-components/toggle-button.js";
 import "@fluentui/web-components/button.js";
 import "@fluentui/web-components/tooltip.js";
-import { editor, Range, KeyCode, KeyMod } from "monaco-editor";
+import type { editor } from "monaco-editor";
+import { Range, KeyCode, KeyMod } from "monaco-editor";
 import iconBold from "./assets/icons/FluentTextBold24Regular.svg?raw";
 import iconItalic from "./assets/icons/FluentTextItalic24Regular.svg?raw";
 import iconSup from "./assets/icons/FluentTextSuperscript24Regular.svg?raw";
@@ -173,6 +174,7 @@ async function genToolbar(editor: editor.IStandaloneCodeEditor) {
   ) as HTMLDivElement | null;
   if (controlEle) {
     controlEle.style.backgroundColor = "transparent";
+    controlEle.innerHTML = ""; // Clear existing controls
     controlEle.appendChild(toolbar);
   }
 }
