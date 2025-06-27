@@ -9,20 +9,23 @@
     "preview": "vite preview",
     "test": "vitest"
   },
+  "engines": {
+    "node": ">=22.0.0"
+  },
   "devDependencies": {
-    "@shikijs/monaco": "^3.2.1",
+    "@shikijs/monaco": "^3.7.0",
     "@types/ace": "^0.0.52",
-    "@types/codemirror": "^5.60.15",
-    "@types/node": "^22.13.10",
-    "shiki": "^3.2.1",
-    "terser": "^5.39.0",
-    "typescript": "~5.7.2",
-    "vite": "^6.2.0",
+    "@types/codemirror": "^5.60.16",
+    "@types/node": "^22.15.33",
+    "shiki": "^3.7.0",
+    "terser": "^5.43.1",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.0",
     "vite-plugin-css-injected-by-js": "^3.5.2",
-    "vitest": "^3.0.8"
+    "vitest": "^3.2.4"
   },
   "dependencies": {
-    "@fluentui/web-components": "^3.0.0-beta.83",
+    "@fluentui/web-components": "^3.0.0-beta.110",
     "@monaco-editor/loader": "^1.5.0",
     "ky": "^1.8.1",
     "loglevel": "^1.9.2",
