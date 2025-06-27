@@ -27,7 +27,7 @@ mw.loader.load(
   - `Ctrl + I` for _italic text_
 - **Multilingual support** –
   - Editor: Uses Monaco Editor’s supported locales.
-  - Toolbar: Supports the locales available in [WikiEditor](wikimedia/mediawiki-extensions-WikiEditor).
+  - Toolbar: Supports the locales available in [WikiEditor](https://github.com/wikimedia/mediawiki-extensions-WikiEditor).
 
 ## ⚠️ Limitations
 
