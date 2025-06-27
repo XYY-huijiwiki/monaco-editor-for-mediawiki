@@ -9,9 +9,9 @@ export default defineConfig({
   build: {
     minify: "terser",
     manifest: true,
-    // rollupOptions: {
-    //   external: ["monaco-editor"],
-    // },
+    rollupOptions: {
+      external: ["monaco-editor"],
+    },
   },
   server: {
     cors: true,
