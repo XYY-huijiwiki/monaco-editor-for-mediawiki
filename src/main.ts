@@ -10,15 +10,26 @@ import {
 import { shikiToMonaco } from "@shikijs/monaco";
 import { createHighlighter } from "shiki";
 import getLangCode from "./utils/getLangCode";
+import { initDiff } from "./diff";
 import log from "./utils/log";
+import type * as monaco from "monaco-editor";
 
-(() => {
+let editorInstance: monaco.editor.IStandaloneCodeEditor | null = null;
+
+async function main() {
   log.debug("Monaco Editor for MediaWiki is loaded, preparing...");
 
-  // Ensure we're on a wiki edit page
+  // Ensure we're on a wiki edit page or diff page
   try {
     const currentLink = new URL(location.href);
     const action = currentLink.searchParams.get("action") || "";
+    const diffNewId = mw.config.get("wgDiffNewId");
+    const diffOldId = mw.config.get("wgDiffOldId");
+    if (diffNewId && diffOldId) {
+      log.debug("In a wiki diff page");
+      initDiff({ diffOldId, diffNewId });
+      return;
+    }
     if (!["edit", "submit"].includes(action)) {
       log.debug("Not in a wiki edit page");
       return;
@@ -102,8 +113,14 @@ import log from "./utils/log";
       .matchMedia("(prefers-color-scheme: dark)")
       .addEventListener("change", updateTheme);
 
+    // Before creating a new editor, dispose the old one if it exists
+    if (editorInstance) {
+      editorInstance.dispose();
+      editorInstance = null;
+    }
+
     // Initialize Monaco editor
-    const editor = monacoInstance.editor.create(container, {
+    editorInstance = monacoInstance.editor.create(container, {
       value: originalTextarea.value,
       language,
       theme: "dark-plus",
@@ -115,17 +132,23 @@ import log from "./utils/log";
       },
     });
     updateTheme();
-    genToolbar(editor);
+    genToolbar(editorInstance);
 
     // replace original editors
-    replaceWikieditor(editor);
-    replaceCodemirror(editor);
-    replaceAceeditor(editor);
-
-    window.addEventListener("resize", () => editor.layout());
+    replaceWikieditor(editorInstance);
+    replaceCodemirror(editorInstance);
+    replaceAceeditor(editorInstance);
   };
 
   initEditor().catch((err) =>
     log.error(`Initialization failed: ${err.message}`)
   );
-})();
+}
+
+// Initial run
+main().catch((err) => log.error(`Initialization failed: ${err.message}`));
+
+// Listen for soft navigation (example: MediaWiki's page ready event)
+mw.hook("wikipage.content").add(() => {
+  main().catch((err) => log.error(`Re-initialization failed: ${err.message}`));
+});
