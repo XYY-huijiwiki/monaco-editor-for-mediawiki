@@ -5,10 +5,11 @@ export default defineConfig({
   build: {
     minify: "terser",
     manifest: true,
+    outDir: "dist",
   },
   server: {
     cors: true,
   },
   plugins: [cssInjectedByJsPlugin()],
-  base: "https://monaco-editor-for-mediawiki.pages.dev/",
+  base: "https://cdn.jsdelivr.net/gh/XYY-huijiwiki/monaco-editor-for-mediawiki@dist/",
 });
