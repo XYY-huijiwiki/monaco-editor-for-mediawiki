@@ -17,7 +17,6 @@
     "@types/ace": "^0.0.52",
     "@types/codemirror": "^5.60.16",
     "@types/node": "^22.15.33",
-    "monaco-editor": "^0.52.2",
     "shiki": "^3.7.0",
     "terser": "^5.43.1",
     "typescript": "^5.8.3",
@@ -31,6 +30,7 @@
     "ky": "^1.8.1",
     "loglevel": "^1.9.2",
     "loglevel-plugin-prefix": "^0.8.4",
+    "monaco-editor": "^0.52.2",
     "types-mediawiki": "^1.10.1"
   }
 }

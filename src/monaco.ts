@@ -1,4 +1,5 @@
 import loader from "@monaco-editor/loader";
+import * as monaco from "monaco-editor";
 import { shikiToMonaco } from "@shikijs/monaco";
 import { createHighlighter } from "shiki";
 import { setTheme } from "@fluentui/web-components";
@@ -13,6 +14,7 @@ const highlighter = await createHighlighter({
 });
 
 loader.config({
+  monaco: monaco,
   "vs/nls": {
     availableLanguages: {
       "*": getLangCode(mw.config.get("wgUserLanguage")),
