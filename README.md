@@ -9,9 +9,7 @@ Monaco Editor for MediaWiki (ME4M) enhances wiki editing by integrating Microsof
 If your wiki supports personal JavaScript, simply copy and paste the following code into your personal JS page. Voilà, you're all set!
 
 ```js
-mw.loader.load(
-  "https://xyy-huijiwiki.github.io/monaco-editor-for-mediawiki/entry.js"
-);
+mw.loader.load("https://monaco-editor-for-mediawiki.pages.dev/entry.js");
 ```
 
 ## 🌟 Features
