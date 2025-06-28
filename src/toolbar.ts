@@ -12,6 +12,7 @@ import iconRef from "./assets/icons/FluentBook24Regular.svg?raw";
 import iconImage from "./assets/icons/FluentImage24Regular.svg?raw";
 import iconGallery from "./assets/icons/FluentImageMultiple24Regular.svg?raw";
 import iconLink from "./assets/icons/FluentLink24Regular.svg?raw";
+import iconTable from "./assets/icons/FluentTable24Regular.svg?raw";
 
 async function genToolbar(editor: editor.IStandaloneCodeEditor) {
   const toolbar = document.createElement("div");
@@ -165,6 +166,42 @@ async function genToolbar(editor: editor.IStandaloneCodeEditor) {
     genTooltip(
       mw.message("wikieditor-toolbar-tool-gallery").text(),
       "galleryButton"
+    )
+  );
+
+  // charInsert: table
+  const tableButton = document.createElement("fluent-button") as Button;
+  tableButton.innerHTML = iconTable;
+  tableButton.iconOnly = true;
+  tableButton.id = "tableButton";
+  tableButton.onclick = () =>
+    charInsert(
+      editor,
+      `{| class="wikitable"
+!
+!
+!
+|-
+|
+|
+|
+|-
+|
+|
+|
+|-
+|
+|
+|
+|}`,
+      "",
+      true
+    );
+  toolbar.appendChild(tableButton);
+  toolbar.appendChild(
+    genTooltip(
+      mw.message("wikieditor-toolbar-tool-table").text(),
+      "tableButton"
     )
   );
 
