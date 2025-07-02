@@ -3,7 +3,7 @@ import "@fluentui/web-components/toggle-button.js";
 import "@fluentui/web-components/button.js";
 import "@fluentui/web-components/tooltip.js";
 import type { editor } from "monaco-editor";
-import { Range, KeyCode, KeyMod } from "monaco-editor";
+import { Range, KeyCode, KeyMod } from "./monaco";
 import iconBold from "./assets/icons/FluentTextBold24Regular.svg?raw";
 import iconItalic from "./assets/icons/FluentTextItalic24Regular.svg?raw";
 import iconSup from "./assets/icons/FluentTextSuperscript24Regular.svg?raw";

@@ -1,14 +1,25 @@
 import loader from "@monaco-editor/loader";
 import { setTheme } from "@fluentui/web-components";
 import { webLightTheme, webDarkTheme } from "@fluentui/tokens";
-import registerWiki from "./monaco-wiki/main";
+import registerWiki, {
+  registerJavaScript,
+  registerCSS,
+  registerLua,
+} from "monaco-wiki";
+import darkPlus from "shiki/themes/dark-plus.mjs";
+import lightPlus from "shiki/themes/light-plus.mjs";
+import { match } from "@formatjs/intl-localematcher";
 
-import getLangCode from "./utils/getLangCode";
+const displayLocale = match(
+  [mw.config.get("wgUserLanguage")],
+  ["en", "de", "es", "fr", "it", "ja", "ko", "ru", "zh-cn", "zh-tw"],
+  "en"
+);
 
 loader.config({
   "vs/nls": {
     availableLanguages: {
-      "*": getLangCode(mw.config.get("wgUserLanguage")),
+      "*": displayLocale,
     },
   },
 });
@@ -24,7 +35,34 @@ await registerWiki(
 
   // (optional) i18n language codes with a preferred order,
   // e.g. `['zh-hans', 'zh-hant', 'en']`
-  [getLangCode(mw.config.get("wgUserLanguage"))]
+  [displayLocale],
+
+  // (optional) custom download URL for the `wikiparse` object`
+  "https://testingcf.jsdelivr.net/npm/wikiparser-node",
+
+  // (optional) Shiki themes
+  [darkPlus, lightPlus]
+);
+
+registerJavaScript(
+  monacoInstance,
+
+  // (optional) custom download URL for the `eslint` object`
+  "https://testingcf.jsdelivr.net/npm/@bhsd/eslint-browserify"
+);
+
+registerCSS(
+  monacoInstance,
+
+  // (optional) custom download URL for the `stylelint` object`
+  "https://testingcf.jsdelivr.net/npm/@bhsd/stylelint-browserify"
+);
+
+registerLua(
+  monacoInstance,
+
+  // (optional) custom download URL for the `luacheck` object`
+  "https://testingcf.jsdelivr.net/npm/luacheck-browserify"
 );
 
 // Theme management
@@ -40,4 +78,9 @@ window
 monacoInstance.editor.onDidCreateEditor(() => updateTheme());
 monacoInstance.editor.onDidCreateDiffEditor(() => updateTheme());
 
+const Range = monacoInstance.Range;
+const KeyCode = monacoInstance.KeyCode;
+const KeyMod = monacoInstance.KeyMod;
+
 export default monacoInstance;
+export { Range, KeyCode, KeyMod };

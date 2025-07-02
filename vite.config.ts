@@ -11,5 +11,4 @@ export default defineConfig({
     cors: true,
   },
   plugins: [cssInjectedByJsPlugin()],
-  base: "https://cdn.jsdelivr.net/gh/XYY-huijiwiki/monaco-editor-for-mediawiki@dist/",
 });

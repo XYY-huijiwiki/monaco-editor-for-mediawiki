@@ -24,11 +24,14 @@
   },
   "dependencies": {
     "@fluentui/web-components": "^3.0.0-beta.110",
+    "@formatjs/intl-localematcher": "^0.6.1",
     "@monaco-editor/loader": "^1.5.0",
     "ky": "^1.8.1",
     "loglevel": "^1.9.2",
     "loglevel-plugin-prefix": "^0.8.4",
     "monaco-editor": "^0.52.2",
+    "monaco-wiki": "^1.12.0",
+    "shiki": "^3.7.0",
     "types-mediawiki": "^1.10.1"
   }
 }
