@@ -1,6 +1,6 @@
 (async () => {
-  let dirname = new URL(".", import.meta.url); // 获取当前脚本所在的目录
-  let data = await (await fetch(`${dirname}/.vite/manifest.json`)).json(); // 获取manifest.json文件内容
-  let moduleUrl = `${dirname}/${data["index.html"]["file"]}`; // 根据manifest.json文件获取入口文件的url
-  import(moduleUrl); // 导入模块
+  const manifestUrl = new URL(".vite/manifest.json", import.meta.url).href; // Holt den Pfad zur manifest.json
+  const data = await (await fetch(manifestUrl)).json(); // Lädt den Inhalt der manifest.json
+  const moduleUrl = new URL(data["index.html"]["file"], import.meta.url).href; // Bestimmt die URL der Einstiegspunkt-Datei
+  import(moduleUrl); // Importiert das Modul dynamisch
 })();
