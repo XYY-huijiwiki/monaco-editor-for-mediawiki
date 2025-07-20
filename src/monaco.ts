@@ -78,6 +78,57 @@ window
 monacoInstance.editor.onDidCreateEditor(() => updateTheme());
 monacoInstance.editor.onDidCreateDiffEditor(() => updateTheme());
 
+// register wikitext formatting
+const formatWikitext = (text: string): string => {
+  // 1. Trim all lines
+  const lines = text.split("\n").map((line) => line.trim());
+
+  // 2. Shrink more than two line breaks to two
+  let result: string[] = [];
+  let emptyLineCount = 0;
+
+  for (const line of lines) {
+    if (line === "") {
+      emptyLineCount++;
+      if (emptyLineCount < 2) {
+        result.push(line);
+      }
+    } else {
+      emptyLineCount = 0;
+
+      // 3. Ensure two line breaks before headings
+      if (line.match(/^=+.*=+$/)) {
+        // Remove trailing empty lines if any
+        while (result.length > 0 && result[result.length - 1] === "") {
+          result.pop();
+        }
+        // Add exactly two line breaks before heading (if not at start)
+        if (result.length > 0) {
+          result.push("");
+        }
+      }
+
+      result.push(line);
+    }
+  }
+
+  return result.join("\n");
+};
+
+monacoInstance.languages.registerDocumentFormattingEditProvider("wikitext", {
+  provideDocumentFormattingEdits: (model) => {
+    const text = model.getValue();
+    const formatted = formatWikitext(text);
+
+    return [
+      {
+        range: model.getFullModelRange(),
+        text: formatted,
+      },
+    ];
+  },
+});
+
 const Range = monacoInstance.Range;
 const KeyCode = monacoInstance.KeyCode;
 const KeyMod = monacoInstance.KeyMod;
