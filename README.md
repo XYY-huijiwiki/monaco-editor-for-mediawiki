@@ -43,3 +43,8 @@ import(
 ---
 
 Give it a spin and enjoy a **VS Code-like** experience inside your favourite wiki! 🚀
+
+## 📄 License
+
+- VSCode Icons: [MIT](https://github.com/vscode-icons/vscode-icons/blob/master/LICENSE)
+- Fluent UI System Icons: [MIT](https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE)

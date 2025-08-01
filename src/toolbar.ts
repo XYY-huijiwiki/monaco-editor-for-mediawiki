@@ -4,15 +4,15 @@ import "@fluentui/web-components/button.js";
 import "@fluentui/web-components/tooltip.js";
 import type { editor } from "monaco-editor";
 import { Range, KeyCode, KeyMod } from "./monaco";
-import iconBold from "./assets/icons/FluentTextBold24Regular.svg?raw";
-import iconItalic from "./assets/icons/FluentTextItalic24Regular.svg?raw";
-import iconSup from "./assets/icons/FluentTextSuperscript24Regular.svg?raw";
-import iconSub from "./assets/icons/FluentTextSubscript24Regular.svg?raw";
-import iconRef from "./assets/icons/FluentBook24Regular.svg?raw";
-import iconImage from "./assets/icons/FluentImage24Regular.svg?raw";
-import iconGallery from "./assets/icons/FluentImageMultiple24Regular.svg?raw";
-import iconLink from "./assets/icons/FluentLink24Regular.svg?raw";
-import iconTable from "./assets/icons/FluentTable24Regular.svg?raw";
+import iconBold from "~icons/fluent/text-bold-24-regular?raw";
+import iconItalic from "~icons/fluent/text-italic-24-regular?raw";
+import iconSup from "~icons/fluent/text-superscript-24-regular?raw";
+import iconSub from "~icons/fluent/text-subscript-24-regular?raw";
+import iconRef from "~icons/fluent/book-24-regular?raw";
+import iconImage from "~icons/fluent/image-24-regular?raw";
+import iconGallery from "~icons/fluent/image-multiple-24-regular?raw";
+import iconLink from "~icons/fluent/link-24-regular?raw";
+import iconTable from "~icons/fluent/table-24-regular?raw";
 
 async function genToolbar(editor: editor.IStandaloneCodeEditor) {
   const toolbar = document.createElement("div");
