@@ -2,6 +2,7 @@ import genToolbar from "./toolbar";
 import linkToWikiEditor from "./utils/linkToWikiEditor";
 import log from "./utils/log";
 import type * as monaco from "monaco-editor";
+import initCopilot from "./copilot/initCopilot";
 
 async function initEditor({
   monacoInstance,
@@ -46,8 +47,13 @@ async function initEditor({
     },
   });
 
-  genToolbar(editorInstance);
-  linkToWikiEditor(editorInstance);
+  await genToolbar(editorInstance);
+  await linkToWikiEditor(editorInstance);
+
+  // init copilot button (for XYY wiki only)
+  if (location.origin === "https://xyy.huijiwiki.com") {
+    await initCopilot(() => editorInstance.getValue());
+  }
 
   return editorInstance;
 }

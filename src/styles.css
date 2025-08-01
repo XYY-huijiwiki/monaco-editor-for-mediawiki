@@ -44,3 +44,8 @@ div:has(> .ace_editor),
     border-color: #30363d;
   }
 }
+
+/* set #wpSummaryWidget to relative for absolutely positioned children */
+#wpSummaryWidget {
+  position: relative;
+}
