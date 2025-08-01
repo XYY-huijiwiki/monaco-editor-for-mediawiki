@@ -45,7 +45,12 @@ div:has(> .ace_editor),
   }
 }
 
-/* set #wpSummaryWidget to relative for absolutely positioned children */
-#wpSummaryWidget {
-  position: relative;
+/* for Copilot btn */
+.huiji-css-hook {
+  #wpSummaryWidget {
+    position: relative;
+    input#wpSummary {
+      padding-right: 1.75rem;
+    }
+  }
 }
