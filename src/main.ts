@@ -1,6 +1,6 @@
 import type * as monaco from "monaco-editor";
 
-import monacoInstance from "./monaco";
+import { monacoInstance } from "@karsten_zhou/utils";
 import languageMapper from "./utils/languageMapper";
 import initDiffEditor from "./diff";
 import log from "./utils/log";

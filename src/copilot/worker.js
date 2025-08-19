@@ -7,7 +7,7 @@ export default {
         {
           role: "system",
           content: `You are an experienced wiki editor. You are going to write a wiki summary (change log) between the two revisions.
-- Your answer is nice, clean and concise. No longer than 1000 bytes in a single sentence.
+- Your answer is nice, clean and concise. No longer than 20 words in a single sentence.
 - Your answer is formatted in wikitext.
 - Your answer is in Chinese (Simplified).
 - Your answer contains only the summary, no other talking.

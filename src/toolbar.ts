@@ -3,7 +3,7 @@ import "@fluentui/web-components/toggle-button.js";
 import "@fluentui/web-components/button.js";
 import "@fluentui/web-components/tooltip.js";
 import type { editor } from "monaco-editor";
-import { Range, KeyCode, KeyMod } from "./monaco";
+import { Range, KeyCode, KeyMod } from "@karsten_zhou/utils";
 import iconBold from "~icons/fluent/text-bold-24-regular?raw";
 import iconItalic from "~icons/fluent/text-italic-24-regular?raw";
 import iconSup from "~icons/fluent/text-superscript-24-regular?raw";
@@ -13,6 +13,17 @@ import iconImage from "~icons/fluent/image-24-regular?raw";
 import iconGallery from "~icons/fluent/image-multiple-24-regular?raw";
 import iconLink from "~icons/fluent/link-24-regular?raw";
 import iconTable from "~icons/fluent/table-24-regular?raw";
+import { setTheme } from "@fluentui/web-components";
+import { webLightTheme, webDarkTheme } from "@fluentui/tokens";
+
+// Theme management
+const updateTheme = () => {
+  const isDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  setTheme(isDark ? webDarkTheme : webLightTheme);
+};
+window
+  .matchMedia("(prefers-color-scheme: dark)")
+  .addEventListener("change", updateTheme);
 
 async function genToolbar(editor: editor.IStandaloneCodeEditor) {
   const toolbar = document.createElement("div");

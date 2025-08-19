@@ -19,6 +19,7 @@
     "@types/codemirror": "^5.60.16",
     "@types/node": "^22.15.33",
     "terser": "^5.43.1",
+    "types-mediawiki": "^1.10.1",
     "typescript": "^5.8.3",
     "unplugin-icons": "^22.2.0",
     "vite": "^7.0.0",
@@ -27,17 +28,13 @@
   },
   "dependencies": {
     "@fluentui/web-components": "^3.0.0-beta.110",
-    "@formatjs/intl-localematcher": "^0.6.1",
-    "@monaco-editor/loader": "^1.5.0",
+    "@karsten_zhou/utils": "^0.2.1",
     "@types/lodash-es": "^4.17.12",
     "diff": "^8.0.2",
     "ky": "^1.8.1",
     "lodash-es": "^4.17.21",
     "loglevel": "^1.9.2",
     "loglevel-plugin-prefix": "^0.8.4",
-    "monaco-editor": "^0.52.2",
-    "monaco-wiki": "^1.12.0",
-    "shiki": "^3.7.0",
-    "types-mediawiki": "^1.10.1"
+    "monaco-editor": "^0.52.2"
   }
 }
