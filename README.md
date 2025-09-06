@@ -10,13 +10,13 @@ If your wiki supports personal JavaScript, simply copy and paste the following c
 
 ```js
 import(
-  "https://cdn.jsdelivr.net/gh/XYY-huijiwiki/monaco-editor-for-mediawiki@dist/entry.js"
+  "https://testingcf.jsdelivr.net/gh/XYY-huijiwiki/monaco-editor-for-mediawiki@dist/index.js"
 );
 ```
 
 ## 🌟 Features
 
-![alt text](Bildschirmfoto_14-3-2025_14315_xyy.huijiwiki.com.jpeg)
+![preview image](image.png)
 
 - **All the goodness of Monaco Editor** – Multiple selections, Find & Replace, Code Folding, and more!
 - **Wikitext syntax highlighting** – Thanks to [Frederisk/Wikitext-VSCode-Extension](https://github.com/Frederisk/Wikitext-VSCode-Extension) and [shikijs/textmate-grammars-themes](https://github.com/shikijs/textmate-grammars-themes).
@@ -28,23 +28,19 @@ import(
 - **Multilingual support** –
   - Editor: Uses Monaco Editor’s supported locales.
   - Toolbar: Supports the locales available in [WikiEditor](https://github.com/wikimedia/mediawiki-extensions-WikiEditor).
+- **AI summary** – Powered by open-source AI models. Summarizes the page changes you made. (Currently supports only on [XYY HuijiWiki](https://xyy.huijiwiki.com) due to its heavy costs. Contact me if you want to self-host the AI service.)
 
 ## ⚠️ Limitations
 
+- Monaco Editor is powerful yet resource-intensive. This is not an ideal choice for old devices or slow networks.
 - Currently, all functions have been thoroughly tested only on [XYY HuijiWiki](https://xyy.huijiwiki.com).
 
 ## 🛠️ To-Do
 
-- Rewrite the toolbar using a modern framework (Vue or React).
 - Test on other wikis.
-- Externalise `monaco-editor`.
 - Improve lua debug experience.
+- Implement file upload feature.
 
 ---
 
 Give it a spin and enjoy a **VS Code-like** experience inside your favourite wiki! 🚀
-
-## 📄 License
-
-- VSCode Icons: [MIT](https://github.com/vscode-icons/vscode-icons/blob/master/LICENSE)
-- Fluent UI System Icons: [MIT](https://github.com/microsoft/fluentui-system-icons/blob/main/LICENSE)
