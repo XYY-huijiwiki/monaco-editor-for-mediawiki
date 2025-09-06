@@ -6,7 +6,7 @@
     @default="open = false"
     style="color-scheme: light dark"
   >
-    <div class="flex flex-col gap-1">
+    <div style="display: flex; flex-direction: column; gap: 0.25rem">
       <cdx-message
         >Drag files to editor or
         <a class="cdx-docs-link" href="#" @click="handleFileDialogClick"
@@ -15,8 +15,10 @@
         to upload files.</cdx-message
       >
       <div v-for="(file, idx) in files" :key="file.id">
-        <div class="flex gap-1">
-          <div class="relative flex-none w-32 h-32">
+        <div style="display: flex; gap: 0.25rem">
+          <div
+            style="position: relative; flex: none; width: 8rem; height: 8rem"
+          >
             <div
               v-tooltip:top="
                 file.check.content !== '' ? file.check.content : null
@@ -33,7 +35,16 @@
                 }"
               />
               <div
-                class="right-1 bottom-1 rounded-sm absolute bg-[var(--container)] p-1 text-xs text-[var(--primary-text-on-container)]"
+                style="
+                  right: 0.25rem;
+                  bottom: 0.25rem;
+                  border-radius: 0.125rem;
+                  position: absolute;
+                  background: var(--container);
+                  padding: 0.25rem;
+                  font-size: 0.75rem;
+                  color: var(--primary-text-on-container);
+                "
               >
                 {{
                   file.check.status === "loading"
@@ -49,14 +60,21 @@
               </div>
             </div>
           </div>
-          <div class="flex flex-col gap-1 grow">
-            <div class="flex gap-1">
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 0.25rem;
+              flex-grow: 1;
+            "
+          >
+            <div style="display: flex; gap: 0.25rem">
               <cdx-text-input
                 :placeholder="t('input.filename')"
                 v-model="file.filename"
                 size="small"
                 @input="() => onFilenameChange(file)"
-                class="flex-1 w-0"
+                style="flex: 1 1 0%; width: 0"
               ></cdx-text-input>
               <cdx-button
                 type="error"
@@ -67,15 +85,15 @@
                 {{ t("btn.remove") }}
               </cdx-button>
             </div>
-            <div class="flex grow">
-              <cdx-text-area class="flex grow" />
+            <div style="display: flex; flex-grow: 1">
+              <cdx-text-area style="display: flex; flex-grow: 1" />
             </div>
           </div>
         </div>
       </div>
     </div>
     <template #footer>
-      <div class="flex justify-end gap-1">
+      <div style="display: flex; justify-content: flex-end; gap: 0.25rem">
         <!-- force upload -->
         <cdx-button
           type="warning"

@@ -39,7 +39,7 @@ import(
 
 - Test on other wikis.
 - Improve lua debug experience.
-- Implement file upload feature.
+- Implement file upload feature for XYY HuijiWiki.
 
 ---
 
