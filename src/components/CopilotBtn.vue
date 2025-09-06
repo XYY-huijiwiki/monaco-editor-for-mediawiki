@@ -29,8 +29,6 @@ async function generateSummary(
     { ignoreWhitespace: true, context: Infinity }
   );
 
-  console.log(diff);
-
   const result = await ky
     .post(__COPILOT_URL__, {
       body: diff,

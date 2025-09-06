@@ -1,0 +1,32 @@
+{
+  "license.animationscreenshot": "Animation screenshot (screenshot from Pleasant Goat and Big Big Wolf animated series)",
+  "license.fairuse": "Fair use (copyrighted but permitted under fair use guidelines)",
+  "license.authorized": "Authorized (copyrighted but approved by the rights holder)",
+  "license.publicdomain": "Public domain (free to use without restrictions)",
+  "error.tooLarge": "File too big (max 10 MB)",
+  "status.checking": "Checking your file...",
+  "status.valid": "Looks good!",
+  "error.unknownUploadStatus": "Can't determine upload status",
+  "error.unknown": "Something went wrong",
+  "modal.title": "Ready to upload?",
+  "modal.dropPrompt": "Drag files here to upload",
+  "img.alt": "File preview",
+  "status.ready": "Ready",
+  "status.uploaded": "Uploaded",
+  "status.warning": "Heads up",
+  "status.error": "Oops",
+  "input.filename": "File name",
+  "btn.remove": "Remove",
+  "input.license": "Choose license",
+  "btn.applyAll": "Apply to all",
+  "input.source": "Source",
+  "input.categories": "Categories",
+  "btn.uploadWithWarnings": "Upload anyway (ignore warnings)",
+  "btn.upload": "Upload files",
+  "similar-images-prompt": {
+    "enable-prompt": "These look similar. Add a variant gallery?",
+    "main-variant": "Main version",
+    "code-preview": "Preview"
+  },
+  "safariWarning": "Safari alert: File dragging limited. Keep this gadget off in Safari."
+}

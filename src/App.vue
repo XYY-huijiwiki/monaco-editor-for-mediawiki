@@ -10,10 +10,13 @@ import {
   cdxIconSuperscript,
   cdxIconTable,
   cdxIconUnderline,
+  cdxIconUpload,
 } from "@wikimedia/codex-icons";
 import type { editor } from "monaco-editor";
 import { Range, KeyCode, KeyMod } from "@karsten_zhou/utils";
 import CopilotBtn from "./components/CopilotBtn.vue";
+import FileUploader from "./components/FileUploader.vue";
+import { ref } from "vue";
 
 // tooltip register
 const vTooltip = CdxTooltip;
@@ -281,33 +284,63 @@ function charInsert(
 buttons.forEach((btn) => {
   if (btn.kbd) editorInstance.addCommand(btn.kbd, btn.action);
 });
+
+// upload button
+const uploadBtn = {
+  key: "upload",
+  icon: cdxIconUpload,
+  label: mw.message("wikieditor-toolbar-tool-file-upload").text(),
+  action: () => {
+    showUploadDialog.value = true;
+  },
+};
+const showUploadDialog = ref(false);
 </script>
 
 <template>
-  <div class="me4m-toolbar">
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <cdx-button
+        v-for="value in buttons"
+        :key="value.key"
+        :aria-label="value.label"
+        v-tooltip:top="value.label"
+        @click="value.action"
+        weight="quiet"
+        type="button"
+      >
+        <cdx-icon :icon="value.icon" :lang="lang" />
+      </cdx-button>
+    </div>
     <cdx-button
-      v-for="value in buttons"
-      :key="value.key"
-      :aria-label="value.label"
-      v-tooltip:top="value.label"
-      @click="value.action"
-      weight="quiet"
+      :aria-label="uploadBtn.label"
       type="button"
+      @click="uploadBtn.action"
     >
-      <cdx-icon :icon="value.icon" :lang="lang" />
+      <cdx-icon :icon="uploadBtn.icon" />
+      {{ uploadBtn.label }}
     </cdx-button>
   </div>
+  <file-uploader
+    :editor-instance="editorInstance"
+    v-model:open="showUploadDialog"
+  />
   <copilot-btn :get-new-content="() => editorInstance.getValue()" />
 </template>
 
 <style scoped lang="css">
-.me4m-toolbar {
-  padding: 0.5rem;
+.toolbar {
+  padding: 0.25rem;
   margin-bottom: -4px;
   display: flex;
-  gap: 0.5rem;
+  justify-content: space-between;
+  gap: 0.25rem;
   background-color: var(--container);
   border-top-left-radius: 2px;
   border-top-right-radius: 2px;
+}
+.toolbar-left {
+  display: flex;
+  gap: 0.25rem;
 }
 </style>

@@ -1,0 +1,32 @@
+{
+  "license.animationscreenshot": "Animations-Screenshot (Screenshot aus der Animationsserie Pleasant Goat and Big Big Wolf)",
+  "license.fairuse": "Fair Use (urheberrechtlich geschützt, aber auf XYY Wiki erlaubt)",
+  "license.authorized": "Autorisiert (vom Rechteinhaber für XYY Wiki freigegeben)",
+  "license.publicdomain": "Public Domain (gemeinfrei)",
+  "error.tooLarge": "Datei zu groß (max. 10 MB)",
+  "status.checking": "Prüfe Datei...",
+  "status.valid": "Datei gültig",
+  "error.unknownUploadStatus": "Unbekannter Upload-Status",
+  "error.unknown": "Unbekannter Fehler",
+  "modal.title": "Upload bestätigen",
+  "modal.dropPrompt": "Dateien zum Hochladen hierher ziehen",
+  "img.alt": "Vorschaubild",
+  "status.ready": "Bereit",
+  "status.uploaded": "Hochgeladen",
+  "status.warning": "Warnung",
+  "status.error": "Fehler",
+  "input.filename": "Dateiname",
+  "btn.remove": "Entfernen",
+  "input.license": "Lizenz wählen",
+  "btn.applyAll": "Auf alle anwenden",
+  "input.source": "Quelle",
+  "input.categories": "Kategorien",
+  "btn.uploadWithWarnings": "Dateien hochladen (trotz Warnungen)",
+  "btn.upload": "Dateien hochladen",
+  "similar-images-prompt": {
+    "enable-prompt": "Diese Dateinamen ähneln sich. Variantengalerie-Code hinzufügen?",
+    "main-variant": "Hauptvariante",
+    "code-preview": "Code-Vorschau"
+  },
+  "safariWarning": "Hinweis für Safari-Nutzer: Wegen Sicherheitseinschränkungen beim Dateiziehen bitte dieses Gadget nicht aktivieren."
+}

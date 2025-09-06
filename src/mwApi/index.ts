@@ -1,4 +1,6 @@
 import getPage from "./getPage";
+import { uploadFile } from "./uploadFile";
+import type { UploadSuccess, UploadWarnings, UploadError } from "./uploadFile";
 
 /**
  * wiki api base url.
@@ -7,4 +9,5 @@ import getPage from "./getPage";
  **/
 const url = `${location.origin}/w/api.php`;
 
-export { url, getPage };
+export { url, getPage, uploadFile };
+export type { UploadSuccess, UploadWarnings, UploadError };

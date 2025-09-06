@@ -1,0 +1,32 @@
+{
+  "license.animationscreenshot": "动画截图（《喜羊羊与灰太狼》系列动画的截图）",
+  "license.fairuse": "合理使用（该文件受著作权保护，但属羊羊百科合理使用范畴）",
+  "license.authorized": "已获授权（该文件受著作权保护，权利人已授权羊羊百科使用）",
+  "license.publicdomain": "公有领域（该文件属于公有领域资源）",
+  "error.tooLarge": "文件过大（最大支持10MB）",
+  "status.checking": "正在检查文件...",
+  "status.valid": "文件验证通过",
+  "error.unknownUploadStatus": "未知上传状态",
+  "error.unknown": "未知错误",
+  "modal.title": "确认上传文件",
+  "modal.dropPrompt": "拖拽文件到此处即可上传",
+  "img.alt": "图片预览",
+  "status.ready": "准备就绪",
+  "status.uploaded": "上传成功",
+  "status.warning": "警告",
+  "status.error": "出错",
+  "input.filename": "文件名",
+  "btn.remove": "移除",
+  "input.license": "选择授权方式",
+  "btn.applyAll": "应用至全部",
+  "input.source": "来源",
+  "input.categories": "分类",
+  "btn.uploadWithWarnings": "继续上传（忽略警告）",
+  "btn.upload": "上传文件",
+  "similar-images-prompt": {
+    "enable-prompt": "这些文件名很相似，需要添加变体图库代码吗？",
+    "main-variant": "主版本",
+    "code-preview": "代码预览"
+  },
+  "safariWarning": "Safari浏览器因安全策略限制拖拽功能，请勿启用此工具"
+}

@@ -1,6 +1,7 @@
 import type { editor } from "monaco-editor";
 import { createApp } from "vue";
 import App from "./App.vue";
+import i18n from "./locales";
 
 let vueApp: ReturnType<typeof createApp> | null = null;
 
@@ -16,7 +17,7 @@ async function genToolbar(editorInstance: editor.IStandaloneCodeEditor) {
   ) as HTMLDivElement | null;
   if (!controlsEle) throw new Error("Could not find `.wikiEditor-ui-controls`");
   controlsEle.style.backgroundColor = "transparent";
-  vueApp.mount(controlsEle);
+  vueApp.use(i18n).mount(controlsEle);
 }
 
 export default genToolbar;

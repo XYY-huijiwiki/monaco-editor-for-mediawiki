@@ -1,0 +1,32 @@
+{
+  "license.animationscreenshot": "動畫截圖（《喜羊羊與灰太狼》系列動畫嘅截圖）",
+  "license.fairuse": "合理使用（此檔案受著作權保護，喺羊羊百科屬合理使用範圍）",
+  "license.authorized": "已獲授權（此檔案受著作權保護，版權方已授權羊羊百科使用）",
+  "license.publicdomain": "公有領域（此檔案屬公有領域作品）",
+  "error.tooLarge": "檔案太大（上限為10MB）",
+  "status.checking": "檢查檔案中⋯⋯",
+  "status.valid": "檔案有效",
+  "error.unknownUploadStatus": "不明上載狀態",
+  "error.unknown": "不明錯誤",
+  "modal.title": "確認檔案上載",
+  "modal.dropPrompt": "拖放檔案到呢度上載",
+  "img.alt": "圖片預覽",
+  "status.ready": "準備就緒",
+  "status.uploaded": "已上載",
+  "status.warning": "注意提示",
+  "status.error": "出錯",
+  "input.filename": "檔案名稱",
+  "btn.remove": "刪走",
+  "input.license": "選擇授權方式",
+  "btn.applyAll": "套用至全部",
+  "input.source": "來源",
+  "input.categories": "分類標籤",
+  "btn.uploadWithWarnings": "照樣上載（忽略所有提示）",
+  "btn.upload": "上載檔案",
+  "similar-images-prompt": {
+    "enable-prompt": "呢啲檔案名好似好相似，想幫你加變體圖庫代碼嗎？",
+    "main-variant": "主要版本",
+    "code-preview": "代碼預覽"
+  },
+  "safariWarning": "注意：Safari嘅安全設定限制拖放功能，用Safari就唔好開呢個小工具啦"
+}

@@ -5,6 +5,7 @@ import languageMapper from "./utils/languageMapper";
 import initDiffEditor from "./diff";
 import log from "./utils/log";
 import initEditor from "./edit";
+import "./styles.css";
 
 let diffEditorInstance: monaco.editor.IStandaloneDiffEditor | null = null;
 let editorInstance: monaco.editor.IStandaloneCodeEditor | null = null;

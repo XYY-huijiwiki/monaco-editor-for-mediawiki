@@ -19,9 +19,6 @@ async function initEditor({
     return null;
   }
 
-  // raw wikiEditor dark mode
-  import("./styles.css");
-
   // remove old container if exists
   const oldContainer = document.querySelector(".monaco-editor-container");
   if (oldContainer) {

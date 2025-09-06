@@ -3,6 +3,13 @@
 @import "@wikimedia/codex-design-tokens/theme-wikimedia-ui-root.css";
 @import "@wikimedia/codex-design-tokens/theme-wikimedia-ui-mode-dark.css" only
   screen and (prefers-color-scheme: dark);
+h2.cdx-dialog__header__title {
+  color: var(--color-base);
+}
+textarea.cdx-text-area__textarea {
+  resize: none;
+  flex-grow: 1;
+}
 
 .CodeMirror,
 .app-editor-embed,

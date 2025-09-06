@@ -1,0 +1,32 @@
+{
+  "license.animationscreenshot": "Animation screenshot (screenshot from Pleasant Goat and Big Big Wolf animated series)",
+  "license.fairuse": "Fair use (protected by copyright, but permitted on YangYangWiki under fair use exceptions)",
+  "license.authorized": "Authorised (protected by copyright, but rights holder has authorised YangYangWiki use)",
+  "license.publicdomain": "Public domain (this file has no copyright restrictions)",
+  "error.tooLarge": "File too large (max. 10 MB)",
+  "status.checking": "Checking file...",
+  "status.valid": "File valid",
+  "error.unknownUploadStatus": "Unknown upload status",
+  "error.unknown": "Unknown error",
+  "modal.title": "Confirm file upload",
+  "modal.dropPrompt": "Drag files here to upload",
+  "img.alt": "Preview image",
+  "status.ready": "Ready",
+  "status.uploaded": "Uploaded",
+  "status.warning": "Warning",
+  "status.error": "Error",
+  "input.filename": "Filename",
+  "btn.remove": "Remove",
+  "input.license": "Select licence",
+  "btn.applyAll": "Apply to all",
+  "input.source": "Source",
+  "input.categories": "Categories",
+  "btn.uploadWithWarnings": "Upload files (ignore warnings)",
+  "btn.upload": "Upload files",
+  "similar-images-prompt": {
+    "enable-prompt": "These filenames look similar. Add variant gallery code?",
+    "main-variant": "Main variant",
+    "code-preview": "Code preview"
+  },
+  "safariWarning": "Safari restricts file dragging. Safari users should avoid enabling this gadget."
+}
