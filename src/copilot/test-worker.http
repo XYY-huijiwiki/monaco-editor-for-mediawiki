@@ -1,0 +1,11 @@
+### Dev Test
+POST http://localhost:8787
+Content-Type: text/plain
+
+{"patch": "diff --git ..."}
+
+### Prod Test
+POST https://wiki-summary.24218079.xyz
+Content-Type: text/plain
+
+{"patch": "diff --git ..."}

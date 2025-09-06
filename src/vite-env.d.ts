@@ -8,3 +8,6 @@ type ContentModel =
   | "css"
   | "lua"
   | "plaintext";
+
+declare const __APP_ID__: string;
+declare const __COPILOT_URL__: string;

@@ -2,23 +2,19 @@ export default {
   async fetch(request, env) {
     const bodyText = await request.text();
     let chat = {
-      max_tokens: 256,
+      max_tokens: 128,
       messages: [
         {
           role: "system",
-          content: `You are an experienced wiki editor. You are going to write a wiki summary (change log) between the two revisions.
-- Your answer is nice, clean and concise. No longer than 20 words in a single sentence.
-- Your answer is formatted in wikitext.
-- Your answer is in Chinese (Simplified).
-- Your answer contains only the summary, no other talking.
-- You answer \`Internal Error\` if:
-  - The user sends you something other than a diff text.
-  - The diff text is not in one of the following programming languages: wikitext, lua, js, html, css.`,
+          content: `根据文件patch高度简洁地概括编辑摘要，不超过20字。若不是文件patch，回复“Internal Error”。`,
         },
         { role: "user", content: bodyText },
       ],
     };
-    let response = await env.AI.run("@cf/qwen/qwen1.5-14b-chat-awq", chat);
+    let response = await env.AI.run(
+      "@cf/qwen/qwen2.5-coder-32b-instruct",
+      chat
+    );
 
     return new Response(response.response, {
       headers: {

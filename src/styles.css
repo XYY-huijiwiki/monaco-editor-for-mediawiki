@@ -1,11 +1,8 @@
-.me4m-toolbar {
-  padding: 0.5rem;
-  display: flex;
-  gap: 0.5rem;
-  background-color: var(--container);
-  border-top-left-radius: 2px;
-  border-top-right-radius: 2px;
-}
+/* @wikimedia/codex */
+@import "@wikimedia/codex/dist/codex.style.css";
+@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui-root.css";
+@import "@wikimedia/codex-design-tokens/theme-wikimedia-ui-mode-dark.css" only
+  screen and (prefers-color-scheme: dark);
 
 .CodeMirror,
 .app-editor-embed,

@@ -1,0 +1,8 @@
+name = "wiki-summary"
+workers_dev = true
+main = "src/copilot/worker.js"
+compatibility_date = "2025-09-06"
+
+[ai]
+binding = "AI"
+service = "@cf/qwen/qwen2.5-coder-32b-instruct"

@@ -18,23 +18,31 @@
     "@types/ace": "^0.0.52",
     "@types/codemirror": "^5.60.16",
     "@types/node": "^22.15.33",
+    "@vitejs/plugin-vue": "^6.0.1",
+    "@vue/tsconfig": "^0.8.1",
     "terser": "^5.43.1",
     "types-mediawiki": "^1.10.1",
-    "typescript": "^5.8.3",
+    "typescript": "^5.9.2",
     "unplugin-icons": "^22.2.0",
-    "vite": "^7.0.0",
+    "vite": "^7.1.4",
     "vite-plugin-css-injected-by-js": "^3.5.2",
-    "vitest": "^3.2.4"
+    "vitest": "^3.2.4",
+    "vue-tsc": "^3.0.6",
+    "wrangler": "^4.34.0"
   },
   "dependencies": {
-    "@fluentui/web-components": "^3.0.0-beta.110",
     "@karsten_zhou/utils": "^0.2.1",
     "@types/lodash-es": "^4.17.12",
+    "@vueuse/core": "^13.9.0",
+    "@wikimedia/codex": "^2.3.1",
+    "@wikimedia/codex-design-tokens": "^2.3.1",
+    "@wikimedia/codex-icons": "^2.3.1",
     "diff": "^8.0.2",
     "ky": "^1.8.1",
     "lodash-es": "^4.17.21",
     "loglevel": "^1.9.2",
     "loglevel-plugin-prefix": "^0.8.4",
-    "monaco-editor": "^0.52.2"
+    "monaco-editor": "^0.52.2",
+    "vue": "^3.5.21"
   }
 }
