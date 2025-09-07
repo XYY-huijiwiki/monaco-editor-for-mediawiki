@@ -10,13 +10,13 @@ import {
   cdxIconSuperscript,
   cdxIconTable,
   cdxIconUnderline,
-  cdxIconUpload,
+  // cdxIconUpload,
 } from "@wikimedia/codex-icons";
 import type { editor } from "monaco-editor";
 import { Range, KeyCode, KeyMod } from "@karsten_zhou/utils";
 import CopilotBtn from "./components/CopilotBtn.vue";
-import FileUploader from "./components/FileUploader.vue";
-import { ref } from "vue";
+// import FileUploader from "./components/FileUploader.vue";
+// import { ref } from "vue";
 
 // tooltip register
 const vTooltip = CdxTooltip;
@@ -286,15 +286,15 @@ buttons.forEach((btn) => {
 });
 
 // upload button
-const uploadBtn = {
-  key: "upload",
-  icon: cdxIconUpload,
-  label: mw.message("wikieditor-toolbar-tool-file-upload").text(),
-  action: () => {
-    showUploadDialog.value = true;
-  },
-};
-const showUploadDialog = ref(false);
+// const uploadBtn = {
+//   key: "upload",
+//   icon: cdxIconUpload,
+//   label: mw.message("wikieditor-toolbar-tool-file-upload").text(),
+//   action: () => {
+//     showUploadDialog.value = true;
+//   },
+// };
+// const showUploadDialog = ref(false);
 </script>
 
 <template>

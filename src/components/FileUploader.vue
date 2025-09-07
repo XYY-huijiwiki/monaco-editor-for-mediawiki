@@ -1,7 +1,7 @@
 <template>
   <cdx-dialog
     v-model:open="open"
-    :title="t('modal.title')"
+    :title="'modal.title'"
     :use-close-button="true"
     @default="open = false"
     style="color-scheme: light dark"
@@ -26,7 +26,7 @@
             >
               <cdx-image
                 :src="file.thumbUrl"
-                :alt="t('img.alt')"
+                :alt="'img.alt'"
                 object-fit="contain"
                 aspect-ratio="1:1"
                 :class="{
@@ -48,14 +48,14 @@
               >
                 {{
                   file.check.status === "loading"
-                    ? `🤔 ${t("status.checking")}`
+                    ? `🤔 ${"status.checking"}`
                     : file.check.status === "ready"
-                    ? `👍🏼 ${t("status.ready")}`
+                    ? `👍🏼 ${"status.ready"}`
                     : file.check.status === "uploaded"
-                    ? `✅ ${t("status.uploaded")}`
+                    ? `✅ ${"status.uploaded"}`
                     : file.check.status === "warning"
-                    ? `⚠️ ${t("status.warning")}`
-                    : `❌ ${t("status.error")}`
+                    ? `⚠️ ${"status.warning"}`
+                    : `❌ ${"status.error"}`
                 }}
               </div>
             </div>
@@ -70,7 +70,7 @@
           >
             <div style="display: flex; gap: 0.25rem">
               <cdx-text-input
-                :placeholder="t('input.filename')"
+                :placeholder="'input.filename'"
                 v-model="file.filename"
                 size="small"
                 @input="() => onFilenameChange(file)"
@@ -82,7 +82,7 @@
                 tertiary
                 @click="removeFile(idx)"
               >
-                {{ t("btn.remove") }}
+                {{ "btn.remove" }}
               </cdx-button>
             </div>
             <div style="display: flex; flex-grow: 1">
@@ -101,7 +101,7 @@
           @click="uploadAll(true)"
           weight="quiet"
         >
-          {{ t("btn.uploadWithWarnings") }}
+          {{ "btn.uploadWithWarnings" }}
         </cdx-button>
         <!-- normal upload -->
         <cdx-button
@@ -109,7 +109,7 @@
           :disabled="validatorLock || uploading"
           @click="uploadAll()"
         >
-          {{ t("btn.upload") }}
+          {{ "btn.upload" }}
         </cdx-button>
       </div>
     </template>
@@ -129,7 +129,6 @@ import {
   CdxMessage,
 } from "@wikimedia/codex";
 import { ref, watch } from "vue";
-import { t } from "../locales";
 import { uploadFile } from "../mwApi";
 
 const vTooltip = CdxTooltip;
@@ -247,9 +246,9 @@ type simpleValidatorResult = [boolean, string];
 function simpleValidator(file: UploadListItem): simpleValidatorResult {
   const fileExt = file.filename.split(".").pop()?.toLowerCase();
   if (!allowedExts.includes(fileExt || ""))
-    return [false, t("fileUploader.invalidFileType", { fileExt })]; // invalid file type
+    return [false, "fileUploader.invalidFileType"]; // invalid file type
   if (file.file.size > 10 * 1024 * 1024)
-    return [false, t("fileUploader.fileTooLarge")]; // 10MB limit
+    return [false, "fileUploader.fileTooLarge"]; // 10MB limit
   return [true, ""];
 }
 type DryRunValidatorResult = ["success" | "warning" | "error", string];
