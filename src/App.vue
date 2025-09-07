@@ -312,19 +312,19 @@ const showUploadDialog = ref(false);
         <cdx-icon :icon="value.icon" :lang="lang" />
       </cdx-button>
     </div>
-    <cdx-button
+    <!-- <cdx-button
       :aria-label="uploadBtn.label"
       type="button"
       @click="uploadBtn.action"
     >
       <cdx-icon :icon="uploadBtn.icon" />
       {{ uploadBtn.label }}
-    </cdx-button>
+    </cdx-button> -->
   </div>
-  <file-uploader
+  <!-- <file-uploader
     :editor-instance="editorInstance"
     v-model:open="showUploadDialog"
-  />
+  /> -->
   <copilot-btn :get-new-content="() => editorInstance.getValue()" />
 </template>
 
