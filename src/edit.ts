@@ -43,8 +43,8 @@ async function initEditor({
     },
   });
 
-  await genToolbar(editorInstance);
   await linkToWikiEditor(editorInstance);
+  await genToolbar(editorInstance);
 
   return editorInstance;
 }

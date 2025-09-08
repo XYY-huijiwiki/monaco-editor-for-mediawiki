@@ -330,8 +330,7 @@ buttons.forEach((btn) => {
 
 <style scoped lang="css">
 .toolbar {
-  padding: 0.25rem;
-  margin-bottom: -4px;
+  padding-bottom: 4px;
   display: flex;
   justify-content: space-between;
   gap: 0.25rem;

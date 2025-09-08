@@ -11,12 +11,21 @@ async function genToolbar(editorInstance: editor.IStandaloneCodeEditor) {
     vueApp = null;
   }
   vueApp = createApp(App, { editorInstance });
-  const controlsEle = document.querySelector(
-    "div.wikiEditor-ui-controls"
-  ) as HTMLDivElement | null;
-  if (!controlsEle) throw new Error("Could not find `.wikiEditor-ui-controls`");
-  controlsEle.style.backgroundColor = "transparent";
-  vueApp.mount(controlsEle);
+
+  const editorContainer = editorInstance.getContainerDomNode();
+
+  // Host-Element für die Toolbar sicherstellen
+  let toolbarHost = editorContainer.querySelector<HTMLDivElement>(
+    `#monaco-toolbar-${__APP_ID__}`
+  );
+  if (!toolbarHost) {
+    toolbarHost = document.createElement("div");
+    toolbarHost.id = `#monaco-toolbar-${__APP_ID__}`;
+    editorContainer.parentElement!.insertBefore(toolbarHost, editorContainer);
+  }
+
+  vueApp = createApp(App, { editorInstance });
+  vueApp.mount(toolbarHost);
 }
 
 export default genToolbar;
