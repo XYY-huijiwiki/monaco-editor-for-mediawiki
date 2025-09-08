@@ -19,6 +19,7 @@
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/tsconfig": "^0.8.1",
     "concurrently": "^9.2.1",
+    "rollup-plugin-visualizer": "^6.0.3",
     "terser": "^5.43.1",
     "types-mediawiki": "^1.10.1",
     "typescript": "^5.9.2",

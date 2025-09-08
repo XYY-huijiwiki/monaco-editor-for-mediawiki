@@ -4,6 +4,7 @@ import Icons from "unplugin-icons/vite";
 import fs from "node:fs";
 import path from "node:path";
 import vue from "@vitejs/plugin-vue";
+import { visualizer } from "rollup-plugin-visualizer";
 
 const appId = "8c1872"; // Definiere die App-ID hier
 
@@ -12,6 +13,9 @@ export default defineConfig(({ mode }) => {
     build: {
       minify: "terser",
       manifest: true,
+      rollupOptions: {
+        plugins: [visualizer({ filename: "./dist/stats.html" })],
+      },
     },
     server: {
       cors: true,
